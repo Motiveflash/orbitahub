@@ -1,3 +1,47 @@
+// JavaScript for Mailing Form
+document.addEventListener("DOMContentLoaded", function () {
+    "use strict"; // Enables strict mode globally
+
+    const modal = document.getElementById("coming-soon");
+    const closeModal = document.querySelector(".close");
+    const footerForm = document.getElementById("hero-mail-form-form");
+
+    // Add event listener to all buttons with the class "joinButton"
+    const joinButtons = document.querySelectorAll(".joinButton"); // Select all buttons with the class
+    joinButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+            modal.style.transform = "translateX(0)"; // Open the modal
+        });
+    });
+
+    // Close the modal when the close button (X) is clicked
+    closeModal.addEventListener("click", function () {
+        modal.style.transform = "translateX(-100%)"; // Close the modal
+    });
+
+    // Close the modal if the user clicks outside the modal (on the background)
+    window.addEventListener("click", function (event) {
+        if (event.target === modal) {
+            modal.style.transform = "translateX(-100%)"; // Close the modal
+        }
+    });
+
+    // Form submission without page reload
+    footerForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const email = footerForm.querySelector("input").value;
+        alert(`Thank you for joining our mailing list, ${email}!`);
+
+        // Optional: Display a thank-you message
+        const mailingMessage = document.createElement("div");
+        mailingMessage.id = "mailing-message";
+        mailingMessage.textContent = `Thank you for subscribing!`;
+        document.body.appendChild(mailingMessage);
+
+        // Optionally, close the modal
+        modal.style.transform = "translateX(-100%)";
+    });
+});
 // side bar start  
 function openNav() {
     "use strict";
@@ -95,28 +139,6 @@ function scrollToTop() {
 
 
 
-// portfolio gallary tab
-function open_img(evt, cityName) {
-    var i, tabcontent, tablinks;
-
-    // Hide all tab content
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-
-    // Remove active class from all tab links
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].classList.remove("active");
-    }
-
-    // Show the selected tab content and mark the corresponding tab link as active
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.classList.add("active");
-}
-
-
 
 
 
@@ -140,47 +162,6 @@ function scrollToTop() {
         behavior: "smooth"
     });
 }
-
-
-// faq section
-document.addEventListener("DOMContentLoaded", function () {
-    let accordionButtons = document.querySelectorAll('.accordion-button');
-    let acoimg = document.querySelectorAll('.accordion-button img');
-
-    accordionButtons.forEach(function (button, index) {
-        button.addEventListener('click', function () {
-            let collapse = this.parentElement.nextElementSibling;
-
-            // Close all other accordion items
-            accordionButtons.forEach(function (otherButton, otherIndex) {
-                if (otherButton !== button) {
-                    var otherCollapse = otherButton.parentElement.nextElementSibling;
-                    otherCollapse.style.maxHeight = null;
-                    // Reset the image source and rotation for other accordion items
-                    acoimg[otherIndex].src = 'Images/icon/plus.png';
-                    acoimg[otherIndex].style.transform = 'rotate(0deg)';
-                    otherButton.style.backgroundColor = '#fff';
-                }
-            });
-
-            // Toggle the clicked accordion item
-            if (collapse.style.maxHeight) {
-                collapse.style.maxHeight = null;
-                // Reset the image source, rotation, and background color when collapsing
-                acoimg[index].src = 'Images/icon/plus.png';
-                acoimg[index].style.transform = 'rotate(90deg)';
-                button.style.backgroundColor = '';
-            } else {
-                collapse.style.maxHeight = collapse.scrollHeight + "px";
-                // Change the image source, set rotation, and background color when expanding
-                acoimg[index].src = 'Images/icon/menus.png';
-                acoimg[index].style.transform = 'rotate(180deg)';
-                button.style.backgroundColor = '#c1b0d5';
-            }
-        });
-    });
-});
-
 
 
 
@@ -208,13 +189,13 @@ fom.addEventListener('submit', (event) => {
 $('.sliderlogo').slick({
     arrows: false,
     dots: false,
-    infinite: false,
-    autoplay: false,
+    infinite: true,
+    autoplay: true,
     speed: 300,
     slidesToShow: 5,
     slidesToScroll: 1,
     responsive: [{
-            breakpoint: 1024,
+            breakpoint: 50,
             settings: {
                 slidesToShow: 4,
                 slidesToScroll: 1,

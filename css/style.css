@@ -738,7 +738,7 @@ aside .pages {
 /* ====== 1.2. hero section ====== */
 
 .hero {
-    background-image: linear-gradient(0deg, #1507259c 0.5%, #1b1b1bc5 100%), url("../Images/bg/hero2.jpg");
+    background-image: linear-gradient(0deg, #1507259c 0.5%, #1b1b1bc5 100%), url("../Images/bg/hero3.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -753,6 +753,10 @@ aside .pages {
     color: #ffffff;
     letter-spacing: 3.75px;
     text-transform: uppercase;
+}
+
+.hero a {
+    cursor: pointer;
 }
 
 .hero-social-icon {
@@ -847,60 +851,7 @@ aside .pages {
 
 /* ====== End of 1.2. hero section ====== */
 
-/* ====== 1.3. card section ====== */
 
-.feature {
-    background-color: #150725;
-    margin-top: -1px;
-    position: relative;
-}
-
-.feature .flex {
-    --bs-gutter-x: 1.5rem;
-    --bs-gutter-y: 0;
-    display: flex;
-    margin-top: calc(-1 * var(--bs-gutter-y));
-    margin-right: calc(-.5 * var(--bs-gutter-x));
-}
-
-.header-card {
-    margin-top: -145px;
-    display: flex;
-    flex: 0 0 auto;
-    width: 25%;
-    padding-right: calc(var(--bs-gutter-x) * .5);
-    padding-left: calc(var(--bs-gutter-x) * .5);
-}
-
-.header-card div {
-    border-radius: 20px;
-    background: linear-gradient(0deg, #471133 0%, #140921 100%);
-    color: #ffffff;
-    padding: 40px 30px;
-    transition: all 0.4s ease;
-}
-
-.header-card div:hover {
-    transform: scale(1.05);
-    transition: all 0.4s ease;
-}
-
-.header-card .feature-img1 {
-    width: 53px;
-}
-
-.header-card img {
-    width: 60px;
-}
-
-.header-card h4 {
-    width: 146px;
-    letter-spacing: 1.1px;
-    text-transform: uppercase;
-    margin: 20px 0 12px 0;
-}
-
-/* ====== End of 1.3. card section ====== */
 
 /* ====== 1.4. logoipsum section ====== */
 
@@ -1214,175 +1165,7 @@ aside .pages {
 
 /* ====== End of 1.5. Mission section ====== */
 
-/* ====== 1.6. gallary section ====== */
 
-.portfolio-1 {
-    background: #150725;
-    padding: 120px 0 120px 0;
-    margin-top: -1px;
-}
-
-
-.portfo-center {
-    display: flex;
-    text-align: left;
-    flex-wrap: wrap;
-    margin-top: calc(-1 * var(--bs-gutter-y));
-    margin-right: calc(-.5 * var(--bs-gutter-x));
-    margin-left: calc(-.5 * var(--bs-gutter-x));
-}
-
-.portfo-center .w-50 {
-    width: 66.66666667%;
-}
-
-
-.portfolio-1 h5 {
-    color: #ffffff;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-.portfolio-1 h2 {
-    color: #ffffff;
-}
-
-.portfolio-1 p {
-    color: #d3c9c1;
-    padding-right: 145px;
-    margin-top: 1rem;
-}
-
-.portfolio-1 .gallary-hr1 {
-    opacity: 1.25;
-    height: 1px;
-    color: #b520a3;
-    width: 60px;
-    border: 1px solid;
-}
-
-.portfo-center hr {
-    width: 100%;
-    opacity: 1.25;
-    height: 1px;
-    color: #461f72;
-    border: 1px solid;
-}
-
-
-.portfolio-1 .btn_hover2 {
-    padding: 15px 30px;
-    border: 1px solid #ff7527;
-}
-
-.portfo-center .w-100 {
-    flex: 0 0 auto;
-    width: 33.33333333%;
-}
-
-/* gallary */
-.gallary {
-    background-image: url("../Images/bg/gallary-bg.png");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    padding-bottom: 120px;
-    position: relative;
-    z-index: 1;
-}
-
-.gallary img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-}
-
-.gallary img[alt="sm_img"] {
-    height: 200px;
-}
-
-.ga-bg {
-    background-color: #150725;
-    height: 300px;
-}
-
-.gallary span {
-    background-color: #150725;
-    opacity: 0.8;
-    width: 100% !important;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    z-index: -1;
-}
-
-.gallary .container {
-    margin-top: -390px;
-    z-index: 1;
-    position: relative;
-}
-
-.tab {
-    overflow: hidden;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.mb-15 {
-    margin-bottom: 1.5rem !important;
-}
-
-.tab button {
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    transition: 0.3s;
-    background-color: inherit;
-    color: #ffffff;
-    border-radius: 10px;
-}
-
-.tab button.active {
-    background: linear-gradient(11deg, #7436bb 0.01%, #b520a3 100%);
-}
-
-.gallary-hr h6 {
-    letter-spacing: 3.72px;
-    text-transform: uppercase;
-    color: #ffffff;
-}
-
-.gallary-hr hr {
-    opacity: 1;
-    color: #ffffff;
-    height: 2px;
-    width: 60px;
-}
-
-
-.tabcontent {
-    display: none;
-    /*  display block for all data in html*/
-    padding: 6px 12px;
-}
-
-.tabcontent .w-100 {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-}
-
-.w-33 {
-    width: 33.33333333%;
-}
-
-.w-66 {
-    width: 66.66666667%;
-}
-
-
-/* ====== End of 1.6. gallary section ====== */
 
 /* ====== 1.7. Services section ====== */
 
@@ -1679,6 +1462,10 @@ aside .pages {
 
 .work h5 {
     letter-spacing: 1px;
+}
+
+.work a {
+    cursor: pointer;
 }
 
 .work-para {
@@ -2221,6 +2008,23 @@ footer {
     border: 1px solid;
 }
 
+
+.footer-menu {
+    background:  #471133;
+    color: #ffffff;
+    padding: 50px 0;
+    margin-top: 77px;
+}
+
+.footer-menu img {
+    width: 100px;
+    filter: brightness(0) invert(1);
+}
+
+.footer-menu ul li a:hover {
+    color: #f54a48;
+}
+
 footer form {
     border-radius: 50px;
     border: 1px solid #6d2f8a;
@@ -2244,46 +2048,10 @@ footer form button {
     text-transform: uppercase;
 }
 
-footer form button:hover {
+footer form button:hover{
     color: #7436bb;
 }
 
-#footer-message {
-    background: #fff;
-    color: green;
-    width: auto;
-    height: auto;
-    display: flex;
-    align-items: flex-start;
-    padding: 10px 10px 10px 10px;
-    font-size: 25px;
-    font-weight: 800;
-    text-align: center;
-    font-family: "Raleway", sans-serif;
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 10;
-    border-radius: 10px;
-    display: none;
-    transition: display all 0.3s ease;
-}
-
-.footer-menu {
-    background:  #471133;
-    color: #ffffff;
-    padding: 50px 0;
-    margin-top: 77px;
-}
-
-.footer-menu img {
-    width: 100px;
-    filter: brightness(0) invert(1);
-}
-
-.footer-menu ul li a:hover {
-    color: #f54a48;
-}
 
 .footer-menu i {
     font-size: 20px;
@@ -2329,14 +2097,22 @@ footer form button:hover {
 }
 
 /* ====== End of 1.14. Footer section ====== */
-
-
-/* ====== End of 6.1. 404 / Coming Soon page ====== */
-
+/* ====== Mailing Form ====== */
 .coming-soon {
+    width: 100%;
+    height: 100vh;
+    transform: translateX(-100%);  /* Initially hidden off-screen */
+    max-height: 0;
+    border-radius: 0px;
+    bottom: 0;
+    z-index: 2;
+    position: fixed;
+    display: flex;
     background: linear-gradient(0deg, #471133 0%, #0b0314 100%);
     color: #ffffff;
     min-height: 100vh;
+    transition: transform 0.5s ease;  /* Smooth slide-in/slide-out */
+    overflow: hidden;
 }
 
 .coming-soon img {
@@ -2351,15 +2127,99 @@ footer form button:hover {
 .coming-soon p {
     padding: 0 348px;
 }
+
 @media screen and (max-width: 1140px) {
-     /* ====== 404.html / Coming.html ====== */
-     .coming-soon p {
+    .coming-soon p {
         padding: 0 50px;
     }
     .coming-soon img {
         width: 80%;
     }
 }
+
+.hero-mail-form {
+    background: transparent;
+}
+
+.hero-mail-form form {
+    border-radius: 50px;
+    border: 1px solid #6d2f8a;
+    background: #381a46;
+    width: 76%;
+    margin: auto;
+}
+
+.hero-mail-form form input {
+    border-radius: 50px;
+    background: #381a46;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    color: #ffffff;
+    width: 68%;
+}
+
+.hero-mail-form form button {
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.hero-mail-form form button:hover {
+    color: #7436bb;
+}
+
+.hero-mail-form h2 {
+    padding: 3rem 0 0 0;
+    text-align: center;
+}
+
+.hero-mail-form p {
+    text-align: center;
+    margin: .5rem 0 3rem 0;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    justify-self: center;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+/* Optional: Thank You message */
+#mailing-message {
+    background: #fff;
+    color: green;
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    padding: 10px 10px 10px 10px;
+    font-size: 25px;
+    font-weight: 800;
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+    border-radius: 10px;
+    display: none;
+    transition: display all 0.3s ease;
+}
+
+
+/* ====== Mailing Form End ====== */
+
+
 /* ====== End of 6.1. 404 / Coming Soon page ====== */
 
 
