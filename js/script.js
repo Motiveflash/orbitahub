@@ -1,3 +1,114 @@
+// Supabase Configuration
+const SUPABASE_URL = "https://xwfiyhsfxfjmfviiiumf.supabase.co";
+const SUPABASE_KEY =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh3Zml5aHNmeGZqbWZ2aWlpdW1mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzM3MDExNzIsImV4cCI6MjA0OTI3NzE3Mn0.0kXoH7ZKHaSMgpJC78kbR5R9XnC4pdUaCrdDjtBMcyI";
+
+const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+// Wait for the DOM to fully load before attaching event listeners
+document.addEventListener("DOMContentLoaded", () => {
+    "use strict"; // Enables strict mode globally
+
+    /**
+     * Automatically hides the feedback message after a given timeout.
+     * @param {HTMLElement} feedbackElement - The element containing the feedback message.
+     * @param {number} timeout - Time in milliseconds to wait before hiding the message.
+     */
+    const hideFeedbackAfterTimeout = (feedbackElement, timeout = 5000) => {
+        setTimeout(() => {
+            feedbackElement.textContent = "";
+            feedbackElement.style.color = ""; // Reset the color
+        }, timeout);
+    };
+
+    // Handle Contact Form Submission
+    const contactForm = document.getElementById("contactForm");
+    if (contactForm) {
+        contactForm.addEventListener("submit", async (event) => {
+            event.preventDefault(); // Prevent page reload
+
+            // Get form data
+            const name = document.getElementById("contactName").value.trim();
+            const email = document.getElementById("contactEmail").value.trim();
+            const subject = document.getElementById("contactSubject").value.trim();
+            const message = document.getElementById("contactMessage").value.trim();
+
+            const feedbackDiv = document.getElementById("contactFeedback"); // Ensure this div exists in your HTML
+
+            try {
+                const { data, error } = await supabase.from("contacts").insert([
+                    { name, email, subject, message },
+                ]);
+
+                // Display appropriate message
+                if (error) {
+                    console.error("Error inserting data:", error.message);
+                    feedbackDiv.textContent = "Failed to send your message. Please try again.";
+                    feedbackDiv.style.color = "red";
+                } else {
+                    feedbackDiv.textContent = "Message sent successfully!";
+                    feedbackDiv.style.color = "green";
+                    contactForm.reset(); // Reset form fields
+                }
+
+                // Hide feedback message after 5 seconds
+                hideFeedbackAfterTimeout(feedbackDiv);
+            } catch (error) {
+                feedbackDiv.textContent = "Network error. Please try again later.";
+                feedbackDiv.style.color = "red";
+                console.error(error);
+
+                // Hide feedback message after 5 seconds
+                hideFeedbackAfterTimeout(feedbackDiv);
+            }
+        });
+    }
+
+    // Handle Subscription Form Submission
+    const subscriptionForms = document.querySelectorAll(".email-subscription-form");
+    subscriptionForms.forEach((form) => {
+        form.addEventListener("submit", async (event) => {
+            event.preventDefault(); // Prevent page reload
+
+            const emailInput = form.querySelector(".subscription-email");
+            const feedbackDiv = form.querySelector(".mail-form-message");
+
+            const email = emailInput.value.trim();
+
+            try {
+                const { data, error } = await supabase.from("subscriptions").insert([
+                    { email },
+                ]);
+
+                // Display appropriate message
+                if (error) {
+                    if (error.code === "23505") {
+                        feedbackDiv.textContent = "Email already subscribed.";
+                    } else {
+                        feedbackDiv.textContent = `Error: ${error.message}`;
+                    }
+                    feedbackDiv.style.color = "red";
+                } else {
+                    feedbackDiv.textContent = "Subscription successful!";
+                    feedbackDiv.style.color = "green";
+                    emailInput.value = ""; // Reset the input field
+                }
+
+                // Hide feedback message after 5 seconds
+                hideFeedbackAfterTimeout(feedbackDiv);
+            } catch (error) {
+                feedbackDiv.textContent = "Network error. Please try again later.";
+                feedbackDiv.style.color = "red";
+                console.error(error);
+
+                // Hide feedback message after 5 seconds
+                hideFeedbackAfterTimeout(feedbackDiv);
+            }
+        });
+    });
+});
+
+
 // JavaScript for Mailing Form
 document.addEventListener("DOMContentLoaded", function () {
     "use strict"; // Enables strict mode globally

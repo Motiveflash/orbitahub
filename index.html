@@ -13,8 +13,6 @@
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="shortcut icon" href="Images/fave_icon.png" type="image/x-icon">
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-
 
     <!-- font awesome cdn -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -326,6 +324,8 @@
                     </div>
                     <div class="w-50 mt-15">
                         <div class="contact-form">
+                            <div id="contactFeedback"></div>
+
                             <form id="contactForm">
                                 <input type="text" id="contactName" name="name" placeholder="Your Name" required>
                                 <input type="email" id="contactEmail" name="email" placeholder="Your Email" required>
@@ -349,11 +349,13 @@
                     </p>
                 </div>
 
+                <div class="mail-form-message"></div>
                 <form id="footer-form" class="email-subscription-form flex flex-sb gap-2" data-aos="zoom-in" data-aos-delay="400">
                     <div class="mail-form-message"></div>
                     <input type="email" class="subscription-email" required placeholder="Enter your mail">
                     <button type="submit" class="btn_hover1">Join Mailing List</button>
-                </form>                 
+                </form> 
+
             </div>
             <div class="footer-menu">
                 <div class="container">
@@ -429,6 +431,7 @@
                     Be among the first to experience a new wave of innovation.
                     Join our mailing list to stay in the loop and receive exclusive updates as we bring OrbitA to life.</p>
             </div>
+            <div class="mail-form-message"></div>
             <form id="footer-form" class="email-subscription-form flex flex-sb gap-2 " data-aos="zoom-in" data-aos-delay="400">
                 <div class="mail-form-message"></div>
                 <input type="email" class="subscription-email" required placeholder="Enter your mail">
@@ -467,9 +470,11 @@
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
         integrity="sha256-DHF4zGyjT7GOMPBwpeehwoey18z8uiz98G4PRu2lV0A=" crossorigin="anonymous"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    
+
     <!-- custom js -->
     <script src="js/script.js"></script>
-    <script src="js/form.js"></script>
 
 </body>
 
