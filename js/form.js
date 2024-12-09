@@ -7,15 +7,17 @@ const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 document.getElementById("contactForm").addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const name = document.getElementById("contactName").value;
-    const email = document.getElementById("contactEmail").value;
-    const subject = document.getElementById("contactSubject").value;
-    const message = document.getElementById("contactMessage").value;
+    const name = document.getElementById("contactName").value.trim();
+    const email = document.getElementById("contactEmail").value.trim();
+    const subject = document.getElementById("contactSubject").value.trim();
+    const message = document.getElementById("contactMessage").value.trim();
 
     try {
         const { data, error } = await supabase.from("contacts").insert([
             { name, email, subject, message }
         ]);
+
+        console.log("Response:", data, error);
 
         if (error) {
             console.error("Error inserting data:", error.message);
@@ -39,12 +41,14 @@ async function handleSubscriptionFormSubmit(event) {
     const emailInput = form.querySelector(".subscription-email");
     const feedbackDiv = form.querySelector(".mail-form-message");
 
-    const email = emailInput.value;
+    const email = emailInput.value.trim();
 
     try {
         const { data, error } = await supabase.from("subscriptions").insert([
             { email }
         ]);
+
+        console.log("Response:", data, error);
 
         if (error) {
             if (error.code === "23505") {
