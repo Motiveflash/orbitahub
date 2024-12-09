@@ -21,7 +21,19 @@ document.getElementById("contactForm").addEventListener("submit", async (event) 
 
         if (response.ok) {
             alert("Message sent successfully!");
+
+            // Send confirmation email
+            await fetch(`${BASE_URL}/send-confirmation-email/`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email, message: "Thank you for contacting us! Our team will reach out soon." }),
+            });
+
+            // Reset form and refresh page
             document.getElementById("contactForm").reset();
+            location.reload();
         } else {
             const errorData = await response.json();
             alert(`Error: ${errorData.detail || "Something went wrong."}`);
@@ -30,7 +42,6 @@ document.getElementById("contactForm").addEventListener("submit", async (event) 
         alert("Network error. Please try again later.");
     }
 });
-
 
 // Function to handle subscription form submission
 async function handleSubscriptionFormSubmit(event) {
@@ -53,8 +64,19 @@ async function handleSubscriptionFormSubmit(event) {
 
         if (response.ok) {
             feedbackDiv.textContent = "Subscription successful!";
+
+            // Send confirmation email
+            await fetch(`${BASE_URL}/send-confirmation-email/`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email, message: "Thank you for subscribing to our mailing list!" }),
+            });
+
             feedbackDiv.style.color = "green";
             emailInput.value = ""; // Reset the input field
+            location.reload(); // Refresh page
         } else {
             const errorData = await response.json();
             feedbackDiv.textContent = `Error: ${errorData.detail || "Something went wrong."}`;
