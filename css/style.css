@@ -1450,13 +1450,6 @@ aside .pages {
     padding: 120px 0 0 0;
 }
 
-#team {
-    background-image: url("../Images/bg/experience_bg.jpg");
-    background-size: cover;
-    background-position: center center;
-    padding: 120px 0 120px 0;
-}
-
 .team h5 {
     color: #ffffff;
     letter-spacing: 1px;
@@ -1491,78 +1484,6 @@ aside .pages {
     display: flex;
 }
 
-.team-img {
-    min-width: 304px;
-    object-fit: cover;
-    position: relative;
-    background-repeat: no-repeat;
-}
-
-.team-img img {
-    width: 100%;
-    object-fit: cover;
-    background-repeat: no-repeat;
-}
-
-.overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(180deg, #7436bb66 28%, #b520a378 68%);
-    overflow: hidden;
-    width: 100%;
-    height: 0;
-    transition: 0.5s ease;
-}
-
-.team-img:hover .overlay {
-    height: 100%;
-}
-
-.overlay_text {
-    position: absolute;
-    width: 100%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: #ffffff;
-}
-
-.overlay_text h4 {
-    margin: 6px 0 15px 0;
-}
-
-.overlay_text i {
-    color: #ffffff;
-    font-size: 20px;
-}
-
-.overlay_text a {
-    border: 1px solid #ffffff;
-    border-radius: 50%;
-}
-
-.overlay_text a:hover {
-    background-color: #ffffff;
-}
-
-.overlay_text a:hover i {
-    color: #150725;
-}
-
-.overlay_text .flex a:first-child {
-    padding: 8px 13px !important;
-}
-
-.overlay_text .flex a:nth-child(2) {
-    padding: 9px 12px !important;
-}
-
-.overlay_text .flex a:last-child {
-    padding: 8px 10px !important;
-}
 
 .team-btn {
     background: linear-gradient(0deg, #471133 0%, #140921 100%);
@@ -1696,6 +1617,11 @@ footer {
 
 .footer-hr .flex {
     rotate: -90deg;
+}
+
+.footer-flex {
+    justify-content: space-evenly !important;
+    align-items: center !important;
 }
 
 .footer-hr h6 {
@@ -1911,26 +1837,27 @@ footer form button:hover{
 }
 
 /* Optional: Thank You message */
-#mailing-message {
-    background: #fff;
-    color: green;
+.contactFeedback, .mail-form-message {
     width: auto;
     height: auto;
     display: flex;
     align-items: flex-start;
+ 
     padding: 10px 10px 10px 10px;
-    font-size: 25px;
+    font-size: 18px;
     font-weight: 800;
-    text-align: center;
+   
     font-family: "Raleway", sans-serif;
-    position: fixed;
-    top: 20px;
-    right: 20px;
+    /* top: 100px;
+    left: 30px; */
+
     z-index: 10;
     border-radius: 10px;
-    display: none;
+    position: absolute;
+    margin-bottom: 8px;
     transition: display all 0.3s ease;
 }
+
 
 
 /* ====== Mailing Form End ====== */

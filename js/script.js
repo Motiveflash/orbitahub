@@ -17,7 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const hideFeedbackAfterTimeout = (feedbackElement, timeout = 5000) => {
         setTimeout(() => {
             feedbackElement.textContent = "";
-            feedbackElement.style.color = ""; // Reset the color
+            feedbackElement.style.color = "";
+            location.reload();
         }, timeout);
     };
 
@@ -53,6 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 // Hide feedback message after 5 seconds
                 hideFeedbackAfterTimeout(feedbackDiv);
+                 
             } catch (error) {
                 feedbackDiv.textContent = "Network error. Please try again later.";
                 feedbackDiv.style.color = "red";
@@ -60,18 +62,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 // Hide feedback message after 5 seconds
                 hideFeedbackAfterTimeout(feedbackDiv);
+                
             }
         });
     }
 
     // Handle Subscription Form Submission
+    const subs = document.querySelectorAll(".mail-form");
     const subscriptionForms = document.querySelectorAll(".email-subscription-form");
     subscriptionForms.forEach((form) => {
         form.addEventListener("submit", async (event) => {
             event.preventDefault(); // Prevent page reload
 
             const emailInput = form.querySelector(".subscription-email");
-            const feedbackDiv = form.querySelector(".mail-form-message");
+            const feedbackDivMsg = form.querySelector(".mail-form-message");
 
             const email = emailInput.value.trim();
 
@@ -83,26 +87,28 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Display appropriate message
                 if (error) {
                     if (error.code === "23505") {
-                        feedbackDiv.textContent = "Email already subscribed.";
+                        feedbackDivMsg.textContent = "Email already subscribed.";
                     } else {
-                        feedbackDiv.textContent = `Error: ${error.message}`;
+                        feedbackDivMsg.textContent = `Error: ${error.message}`;
                     }
-                    feedbackDiv.style.color = "red";
+                    feedbackDivMsg.style.color = "red";
                 } else {
-                    feedbackDiv.textContent = "Subscription successful!";
-                    feedbackDiv.style.color = "green";
+                    feedbackDivMsg.textContent = "Subscription successful!";
+                    feedbackDivMsg.style.color = "green";
                     emailInput.value = ""; // Reset the input field
                 }
 
                 // Hide feedback message after 5 seconds
-                hideFeedbackAfterTimeout(feedbackDiv);
+                hideFeedbackAfterTimeout(feedbackDivMsg);
+                
             } catch (error) {
-                feedbackDiv.textContent = "Network error. Please try again later.";
-                feedbackDiv.style.color = "red";
+                feedbackDivMsg.textContent = "Network error. Please try again later.";
+                feedbackDivMsg.style.color = "red";
                 console.error(error);
 
                 // Hide feedback message after 5 seconds
-                hideFeedbackAfterTimeout(feedbackDiv);
+                hideFeedbackAfterTimeout(feedbackDivMsg);
+                
             }
         });
     });
@@ -187,51 +193,6 @@ function toggleCollapse(elementId) {
     button.setAttribute('aria-expanded', !isExpanded);
 }
 
-// search-bar
-function open_search_bar() {
-    "use strict";
-    const sidepanel = document.getElementById("search-bar");
-    if (sidepanel) {
-        sidepanel.style.height = "100vh";
-        sidepanel.style.borderRadius = "0";
-    } else {
-        console.error("Error: Side panel element not found!");
-    }
-}
-
-function close_search_bar() {
-    "use strict";
-    const sidepanel = document.getElementById("search-bar");
-    if (sidepanel) {
-        sidepanel.style.height = "0";
-        sidepanel.style.borderTopLeftRadius = "100%";
-        sidepanel.style.borderTopRightRadius = "100%";
-    } else {
-        console.error("Error: Side panel element not found!");
-    }
-}
-
-// right-sidebar
-function open_right_side() {
-    "use strict";
-    const sidepanel = document.getElementById("right_side");
-    if (sidepanel) {
-        sidepanel.style.right = "0";
-    } else {
-        console.error("Error: Side panel element not found!");
-    }
-}
-
-function close_right_sade() {
-    "use strict";
-    const sidepanel = document.getElementById("right_side");
-    if (sidepanel) {
-        sidepanel.style.right = "-355px";
-    } else {
-        console.error("Error: Side panel element not found!");
-    }
-}
-
 
 function scrollFunction() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -247,12 +208,6 @@ function scrollToTop() {
         behavior: "smooth"
     });
 }
-
-
-
-
-
-
 
 // button back to top 
 window.onscroll = function () {
@@ -274,88 +229,3 @@ function scrollToTop() {
     });
 }
 
-
-
-
-// footer validation start
-const fom = document.getElementById('footer-form');
-const footerMessage = document.getElementById('footer-message');
-
-fom.addEventListener('submit', (event) => {
-    event.preventDefault();
-    footerMessage.innerHTML = '~ Form submitted success fully!';
-    footerMessage.style.display = 'flex';
-    fom.reset();
-    setTimeout(() => {
-        footerMessage.style.display = 'none';
-    }, 3000);
-});
-// footer validation end
-
-
-
-
-
-// responsive Logoipsum Slider
-$('.sliderlogo').slick({
-    arrows: false,
-    dots: false,
-    infinite: true,
-    autoplay: true,
-    speed: 300,
-    slidesToShow: 5,
-    slidesToScroll: 1,
-    responsive: [{
-            breakpoint: 50,
-            settings: {
-                slidesToShow: 4,
-                slidesToScroll: 1,
-                infinite: true,
-                dots: false,
-            }
-        },
-        {
-            breakpoint: 600,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1
-            }
-        },
-    ]
-});
-
-
-// responsive team Slider
-$('.team-slider').slick({
-    arrows: false,
-    dots: true,
-    infinite: false,
-    autoplay: true,
-    speed: 300,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    responsive: [{
-            breakpoint: 1024,
-            settings: {
-                slidesToShow: 3,
-                slidesToScroll: 1,
-                infinite: true,
-                dots: true,
-            }
-        },
-        {
-            breakpoint: 600,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1
-            }
-        },
-        {
-            breakpoint: 480,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
-            }
-        }
-    ]
-});

@@ -2,14 +2,7 @@
     .container {
         max-width: 1140px;
     }
-
-    .logoipsum-slider figure {
-        padding: 30px 18px;
-    }
-
-    .team-img {
-        min-width: 277px;
-    }
+    
 }
 
 @media screen and (max-width: 1200px) {
@@ -143,28 +136,6 @@
         padding: 10px 0 60px 0;
     }
 
-    .logoipsum {
-        padding: 100px 0;
-    }
-
-    .logoipsum .hr1 {
-        width: 80px;
-        margin: 0 auto 33px auto;
-    }
-
-    .logoipsum .hr2 {
-        width: 80px;
-        margin: 33px auto 0 auto;
-    }
-
-    .logoipsum-slider {
-        margin-top: 12px;
-    }
-
-    .logoipsum img {
-        width: 150px;
-    }
-
     .about {
         padding: 70px 0;
     }
@@ -178,32 +149,8 @@
         width: 110px;
     }
 
-    .portfolio-1 {
-        padding: 70px 0 70px 0;
-    }
-
-    .gallary {
-        padding-bottom: 70px;
-    }
-
     .tab button {
         padding: 11px 19px;
-    }
-
-    .gallary img {
-        height: 300px;
-    }
-
-    .gallary img[alt="sm_img"] {
-        height: 150px;
-    }
-
-    .gallary .container {
-        margin-top: -355px;
-    }
-
-    .gallary .mt {
-        margin-top: -258px;
     }
 
     .service-1 {
@@ -278,9 +225,6 @@
         min-height: 170px;
     }
 
-    .testimonial {
-        padding: 120px 0 70px 0;
-    }
 
     .team {
         padding: 70px 0 0 0;
@@ -306,17 +250,6 @@
         padding: 0 0 0 0;
     }
 
-    .pricing {
-        padding: 70px 0;
-    }
-
-    #pricing {
-        padding: 70px 0;
-    }
-
-    .pricing-hr {
-        display: none !important;
-    }
 
     .faq {
         padding: 70px 0;
@@ -392,19 +325,8 @@
         margin: 0;
     }
 
-    .gallary .w-33,
-    .gallary .w-66 {
-        width: 100%;
-    }
 
-    .portfo-center {
-        width: 100% !important;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
 
-    .portfo-center .gap-1,
     .service-data .gap-1,
     .exp-center .gap-1,
     .blog-center .gap-1,
@@ -413,8 +335,10 @@
         flex-wrap: wrap !important;
     }
 
-    .portfo-center .w-50,
-    .portfo-center .w-100,
+    .team-center {
+        flex-wrap: wrap !important;
+    }
+
     .service-data .w-66,
     .service-data .w-33,
     .exp-center .w-66,
@@ -427,29 +351,6 @@
         max-width: 100% !important;
         text-align: center !important;
         justify-content: center !important;
-    }
-    .team-center{
-        flex-wrap: wrap;
-    }
-    .blog-center {
-        flex-wrap: wrap;
-    }
-
-    .blog-cards {
-        flex-wrap: wrap;
-    }
-
-    .blog-card {
-        flex: none !important;
-        width: 100%;
-    }
-
-    .portfo-center .w-100 {
-        margin-top: 1rem;
-    }
-
-    .portfolio-1 p {
-        padding: 0;
     }
 
     .service-card {
@@ -503,25 +404,6 @@
         min-height: 170px !important;
     }
 
-    .pricing-card {
-        flex-wrap: wrap;
-    }
-
-    .pricing p {
-        padding: 0 10px;
-    }
-
-    .pricing-card div:nth-child(2) {
-        transform: scale(1);
-    }
-
-    .pricing-card {
-        align-items: center;
-    }
-
-    .blog p {
-        padding: 0;
-    }
 
     .footer-menu .flex-start {
         flex-wrap: wrap;
@@ -548,13 +430,6 @@
     }
 
     
-    .team-img{
-        width: 100px;
-    }
-
-    #search-bar form{
-        width: 90%;
-    }
 }
 
 @media screen and (max-width: 500px) {
