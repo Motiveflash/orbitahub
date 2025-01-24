@@ -1480,10 +1480,94 @@ aside .pages {
 }
 
 .team-slider {
-    overflow: hidden;
+    overflow: scroll;
     display: flex;
+    gap: 1.5rem;
+    /* flex-wrap: wrap; */
 }
 
+
+.team-btn {
+    background: linear-gradient(0deg, #471133 0%, #140921 100%);
+    color: #d3c9c1;
+    padding: 40px 20px;
+    margin-top: 90px;
+    text-transform: uppercase;
+}
+
+.team-img {
+    min-width: 304px;
+    /* max-width: 400px; */
+    object-fit: cover;
+    position: relative;
+    background-repeat: no-repeat;
+}
+
+.team-img img {
+    width: 100%;
+    object-fit: cover;
+    background-repeat: no-repeat;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(180deg, #7436bb66 28%, #b520a378 68%);
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: 0.5s ease;
+}
+
+.team-img:hover .overlay {
+    height: 100%;
+}
+
+.overlay_text {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #ffffff;
+}
+
+.overlay_text h4 {
+    margin: 6px 0 15px 0;
+}
+
+.overlay_text i {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.overlay_text a {
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+}
+
+.overlay_text a:hover {
+    background-color: #ffffff;
+}
+
+.overlay_text a:hover i {
+    color: #150725;
+}
+
+.overlay_text .flex a:first-child {
+    padding: 8px 13px !important;
+}
+
+.overlay_text .flex a:nth-child(2) {
+    padding: 9px 12px !important;
+}
+
+.overlay_text .flex a:last-child {
+    padding: 8px 10px !important;
+}
 
 .team-btn {
     background: linear-gradient(0deg, #471133 0%, #140921 100%);

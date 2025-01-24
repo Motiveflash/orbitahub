@@ -2,6 +2,10 @@
     .container {
         max-width: 1140px;
     }
+
+    .team-img {
+        min-width: 277px;
+    }
     
 }
 
@@ -53,6 +57,7 @@
     .hero-social-icon hr {
         display: none;
     }
+
     .team-img {
         min-width: 232px;
         object-position: center;
@@ -329,7 +334,6 @@
 
     .service-data .gap-1,
     .exp-center .gap-1,
-    .blog-center .gap-1,
     .team-center .gap-1 {
         justify-content: center !important;
         flex-wrap: wrap !important;
@@ -337,6 +341,10 @@
 
     .team-center {
         flex-wrap: wrap !important;
+    }
+
+    .team-img{
+        width: 200px;
     }
 
     .service-data .w-66,
@@ -498,6 +506,12 @@
     .hero {
         padding: 44px 0 44px 0;
         height: 60vh !important;
+    }
+
+    .team-img {
+        min-width: 100% !important;
+        object-position: center;
+        background-repeat: no-repeat;
     }
 
     /* global style */
