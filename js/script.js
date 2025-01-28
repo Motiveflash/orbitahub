@@ -180,6 +180,19 @@ function closeNav() {
     }
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+    "use strict"; // Enables strict mode globally)
+    
+    const navModal = document.getElementById("navPananel");
+    
+    // Close the modal if the user clicks outside the modal (on the background)
+    window.addEventListener("click", function (event) {
+        if (event.target === navModal) {
+            sidepanel.style.left = "-320px"; // Close the modal
+        }
+    });
+})
+
 
 function toggleCollapse(elementId) {
     var element = document.getElementById(elementId);
