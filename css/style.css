@@ -1497,7 +1497,7 @@ aside .pages {
 
 .team-img {
     min-width: 304px;
-    /* max-width: 400px; */
+    max-width: 400px;
     object-fit: cover;
     position: relative;
     background-repeat: no-repeat;
